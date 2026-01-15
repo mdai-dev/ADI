@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artistic Directors International | ADI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* --- VARIABLES & CONFIGURACIÓN --- */
+      :root {
+        --bg-dark: #161821;
+        --bg-card: #0f1016;
+        --text-main: #ffffff;
+        --text-muted: #b0b0c0;
+
+        /* Degradado de marca */
+        --brand-gradient: linear-gradient(
+          90deg,
+          #ff0055 0%,
+          #8000ff 50%,
+          #0044ff 100%
+        );
+        --brand-gradient-hover: linear-gradient(
+          90deg,
+          #ff3377 0%,
+          #9933ff 50%,
+          #3366ff 100%
+        );
+
+        --font-headings: "DM Serif Display", serif;
+        --font-body: "Manrope", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        background-image: url("hero-updated.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-main);
+        font-family: var(--font-body);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+        color: inherit;
+      }
+
+      /* --- TIPOGRAFÍA --- */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-headings);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #fff, #ccc);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: -20px auto 50px;
+        font-size: 1.1rem;
+      }
+
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* --- BOTONES GENERALES --- */
+      .btn-gradient {
+        background: var(--brand-gradient);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: bold;
+        display: inline-block;
+        box-shadow: 0 10px 20px rgba(128, 0, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(128, 0, 255, 0.5);
+        background: var(--brand-gradient-hover);
+      }
+
+      /* --- HEADER --- */
+      header {
+        background: rgba(5, 5, 8, 0.95);
+        padding: 8px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        /* height: auto; Allow growth for 4X logo */
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo-img {
+        height: 120px;
+        /* Reduced from 200px to 80px */
+        width: auto;
+        filter: none;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 30px;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav a:hover {
+        color: #ff0055;
+      }
+
+      /* --- HERO SECTION --- */
+      #hero {
+        position: relative;
+        height: 80vh;
+        /* Reduced height to pull content up */
+        display: flex;
+        align-items: center;
+        /* Centered nicely, but height reduction pulls it visuals up */
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+        /* Slight lift */
+        background: transparent;
+      }
+
+      .hero-bg {
+        display: none;
+      }
+
+      .hero-content {
+        margin-top: -50px;
+        /* EXPLICITLY MOVE TEXT UP */
+        position: relative;
+        z-index: 2;
+        padding: 0 20px;
+        max-width: 1000px;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        color: #ddd;
+        margin-bottom: 40px;
+      }
+
+      /* --- PURPOSE SECTION --- */
+      #purpose {
+        padding: 100px 10%;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        background: rgba(15, 16, 22, 0.85);
+        backdrop-filter: blur(5px);
+      }
+
+      .purpose-img {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .purpose-img img {
+        max-height: 500px;
+        filter: drop-shadow(0 0 30px rgba(128, 0, 255, 0.2));
+        transition: transform 0.3s;
+      }
+
+      .purpose-img img:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      .purpose-text {
+        flex: 1.2;
+      }
+
+      .mission-vision-box {
+        margin-bottom: 30px;
+        padding-left: 20px;
+        border-left: 4px solid #ff0055;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2 Columns */
+        gap: 15px 40px;
+        margin-top: 30px;
+        max-width: 800px;
+        /* Consolidate list width */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .value-item {
+        /* Clean Bullet List Style */
+        padding: 5px 0;
+        font-size: 1.1rem;
+        /* Slightly larger readability */
+        display: flex;
+        align-items: center;
+        color: #e0e0e0;
+        /* Light gray text */
+        border: none;
+        background: none;
+      }
+
+      .value-item:hover {
+        color: #fff;
+        transform: translateX(5px);
+      }
+
+      .value-item::before {
+        content: "•";
+        /* Subtle Bullet */
+        margin-right: 15px;
+        color: #ff0055;
+        /* Brand color bullet for elegance */
+        font-size: 1.5rem;
+        line-height: 0;
+      }
+
+      /* --- LEADERSHIP (Redesigned) --- */
+      #leadership {
+        padding: 100px 10%;
+        background: #000;
+      }
+
+      .leader-card {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 80px;
+        /* Glass bg backing */
+        background: rgba(255, 255, 255, 0.02);
+        padding: 40px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .leader-img {
+        flex: 0 0 300px;
+        height: 300px;
+        position: relative;
+        border-radius: 50%;
+        /* CIRCULAR */
+        overflow: hidden;
+        border: 5px solid rgba(255, 255, 255, 0.1);
+
+        /* WAVE / GLOW EFFECT */
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02),
+          0 0 0 20px rgba(255, 255, 255, 0.02), 0 0 30px rgba(128, 0, 255, 0.3),
+          0 0 60px rgba(255, 0, 85, 0.2);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+      }
+
+      .leader-card:hover .leader-img {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.05),
+          0 0 0 30px rgba(255, 255, 255, 0.05), 0 0 50px rgba(128, 0, 255, 0.5),
+          0 0 80px rgba(255, 0, 85, 0.4);
+      }
+
+      .leader-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .leader-info {
+        flex: 1;
+      }
+
+      .leader-info h3 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #fff, #aaa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .leader-role {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ff0055;
+        display: block;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .btn-read-more {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 30px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .btn-read-more:hover {
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      }
+
+      .leader-info p {
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+        text-align: justify;
+      }
+
+      /* --- MEMBERSHIP --- */
+      #membership {
+        padding: 100px 5%;
+        background: linear-gradient(to bottom, var(--bg-dark), #0f0a1a);
+        text-align: center;
+      }
+
+      .membership-intro {
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+
+      .card-showcase {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+        perspective: 1000px;
+      }
+
+      .card-showcase img {
+        width: 500px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+        animation: floatCard 4s ease-in-out infinite;
+      }
+
+      .card-showcase img:hover {
+        box-shadow: 0 0 15px 2px rgba(0, 80, 255, 1),
+          0 0 30px 10px rgba(0, 80, 255, 0.4);
+        transform: scale(1.02);
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .pricing-container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .price-card {
+        background: var(--bg-card);
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 350px;
+        text-align: left;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+      }
+
+      /* PINNACLE HIGHLIGHT (Featured) */
+      .price-card.featured {
+        border: 2px solid #ff0055;
+        /* Resaltado en Rojo/Brand */
+        background: linear-gradient(
+          180deg,
+          rgba(255, 0, 85, 0.08) 0%,
+          var(--bg-card) 100%
+        );
+        transform: scale(1.1);
+        /* Más grande */
+        z-index: 2;
+        box-shadow: 0 20px 60px rgba(255, 0, 85, 0.2);
+        height: auto;
+        min-height: 650px;
+        /* Asegurar altura */
+      }
+
+      .price-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .price-card.featured:hover {
+        transform: scale(1.12);
+      }
+
+      .tier-header h3 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+
+      .tier-desc {
+        font-size: 0.85rem;
+        color: #888;
+        margin-bottom: 20px;
+        height: 40px;
+      }
+
+      .price-box {
+        margin-bottom: 25px;
+      }
+
+      .current-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .founding-price {
+        color: #ff0055;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      .benefits-list {
+        margin-bottom: 30px;
+        flex-grow: 1;
+      }
+
+      .benefits-list li {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "✓";
+        color: #0044ff;
+        position: absolute;
+        left: 0;
+      }
+
+      .btn-select {
+        text-align: center;
+        margin-top: auto;
+      }
+
+      /* --- ENGAGE & LEARN (Flotante y Seleccionable) --- */
+      #resources {
+        padding: 100px 10%;
+        background: rgba(15, 16, 22, 0.85);
+        backdrop-filter: blur(5px);
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      /* Estilo Flotante y Seleccionable */
+      .res-item-link {
+        display: block;
+        /* Hace que toda la caja sea clicable */
+        text-decoration: none;
+      }
+
+      .res-item {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 40px;
+        border-radius: 20px;
+        border-bottom: 4px solid transparent;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        height: 100%;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Efecto Flotante Degradado */
+      .res-item:hover {
+        transform: translateY(-15px);
+        /* Eleva la tarjeta */
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-bottom-color: #8000ff;
+        /* Color al seleccionar */
+        box-shadow: 0 20px 40px rgba(128, 0, 255, 0.2);
+        /* Sombra resplandor */
+      }
+
+      .res-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .res-item h4 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #fff;
+      }
+
+      .res-item p {
+        font-size: 1rem;
+        color: var(--text-muted);
+      }
+
+      /* --- FORMULARIO DE CONTACTO --- */
+      #contact-section {
+        padding: 80px 15%;
+        background: #0b0c10;
+      }
+
+      .contact-form-container {
+        background: #161821;
+        padding: 50px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #ccc;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 15px;
+        background: #050508;
+        border: 1px solid #333;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #8000ff;
+        box-shadow: 0 0 10px rgba(128, 0, 255, 0.3);
+      }
+
+      select.form-control {
+        appearance: none;
+        cursor: pointer;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: #000;
+        padding: 80px 10%;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-logo {
+        height: 230px;
+        margin: 0 auto 30px;
+        filter: none;
+        opacity: 1;
+      }
+
+      .footer-info {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .social-links a {
+        margin: 0 15px;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+
+      .social-links a:hover {
+        color: #fff;
+      }
+
+      /* --- BOTÓN FLOTANTE (FAB JOIN) --- */
+      .fab-join {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--brand-gradient);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 10px 25px rgba(255, 0, 85, 0.4);
+        z-index: 9999;
+        font-size: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: 0.3s;
+      }
+
+      .fab-join:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+      }
+
+      /* --- AI CHATBOT WIDGET --- */
+      .ai-chat-btn {
+        position: fixed;
+        bottom: 110px;
+        /* Stacked above FAB */
+        right: 35px;
+        /* Aligned center with FAB (70px width vs 60px btn + margin adjust) */
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        z-index: 10000;
+        transition: 0.3s;
+        animation: floatRobot 3s ease-in-out infinite;
+        overflow: hidden;
+        /* Ensure image stays inside circle */
+        padding: 0;
+        border: 2px solid #fff;
+      }
+
+      .ai-chat-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .ai-chat-btn:hover {
+        transform: scale(1.1) rotate(10deg);
+      }
+
+      @keyframes floatRobot {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .chat-window {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        bottom: 120px;
+        right: 110px;
+        /* To the left of buttons or shifted up */
+        width: 350px;
+        height: 500px;
+        background: rgba(20, 20, 30, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        z-index: 10001;
+        flex-direction: column;
+        overflow: hidden;
+        animation: zoomIn 0.3s ease;
+      }
+
+      .chat-window.active {
+        display: flex;
+      }
+
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translate(50px, 50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1) translate(0, 0);
+        }
+      }
+
+      .chat-header {
+        background: linear-gradient(to right, #00d2ff, #3a7bd5);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .chat-header h4 {
+        margin: 0;
+        color: #fff;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .chat-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .msg {
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        max-width: 80%;
+        line-height: 1.4;
+      }
+
+      .msg.bot {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        align-self: flex-start;
+        border-bottom-left-radius: 2px;
+      }
+
+      .msg.user {
+        background: #00d2ff;
+        color: #000;
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+        font-weight: 500;
+      }
+
+      .chat-input-area {
+        padding: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 10px;
+      }
+
+      .chat-input-area input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+      }
+
+      .chat-input-area button {
+        background: #00d2ff;
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Mobile Responsive Chat */
+      @media (max-width: 500px) {
+        .chat-window {
+          width: 90%;
+          right: 5%;
+          bottom: 180px;
+          height: 400px;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .logo-container img {
+          height: 120px;
+          margin-top: 0;
+        }
+
+        /* Ajuste móvil */
+        header {
+          height: auto;
+        }
+
+        #purpose {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .mission-vision-box {
+          border-left: none;
+          padding: 0;
+        }
+
+        .leader-card {
+          flex-direction: column;
+        }
+
+        .pricing-container {
+          flex-direction: column;
+        }
+
+        .price-card.featured {
+          transform: scale(1);
+          width: 100%;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#membership" class="fab-join">JOIN</a>
+
+    <header>
+      <div class="logo-container">
+        <a href="#" style="text-decoration: none">
+          <img src="logo-final.png" alt="ADI Logo" class="logo-img" />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#purpose">About</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#resources">Engage</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#membership" class="btn-gradient">Join Now</a>
+    </header>
+
+    <section id="hero">
+      <div class="hero-content">
+        <p
+          style="
+            color: #ff0055;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+          "
+        >
+          Learn. Lead. Inspire
+        </p>
+
+        <div
+          style="
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+          "
+        >
+          <h1
+            style="
+              font-size: 4rem;
+              line-height: 1.1;
+              margin-bottom: 20px;
+              font-family: var(--font-headings);
+            "
+          >
+            <span class="gradient-text">Virtual Launch</span><br />
+            <span style="font-size: 2.8rem; color: #fff; font-weight: 800"
+              >January 22, 2026</span
+            >
+          </h1>
+
+          <div
+            style="
+              margin: 0 auto 35px;
+              width: fit-content;
+              background: rgba(128, 0, 255, 0.2);
+              padding: 12px 40px;
+              border-radius: 50px;
+              border: 1px solid rgba(128, 0, 255, 0.5);
+              box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+            "
+          >
+            <p
+              style="
+                margin: 0;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: 1px;
+              "
+            >
+              1:00 PM CST | Live via Zoom
+            </p>
+          </div>
+
+          <p
+            style="
+              font-size: 1.25rem;
+              color: #fff;
+              margin-bottom: 40px;
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+              line-height: 1.4;
+              font-weight: 500;
+            "
+          >
+            You are cordially invited to the Artistic Directors International's
+            Opening Circle.<br />
+            Join creative leaders worldwide.
+          </p>
+
+          <a
+            href="launch-register.html"
+            class="btn-gradient"
+            style="
+              padding: 20px 60px;
+              font-size: 1.4rem;
+              box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+              transform: scale(1.05);
+            "
+            >Register for Free</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="purpose"
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 50px;
+        padding: 100px 10%;
+        background: var(--bg-card);
+      "
+    >
+      <!-- LEFT COLUMN: TITLE -->
+      <div style="flex: 1; text-align: left; padding-top: 20px">
+        <h2
+          style="
+            text-align: left;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+          "
+        >
+          Our Purpose
+        </h2>
+        <p
+          style="
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 400px;
+            margin-bottom: 30px;
+          "
+        >
+          Driving the evolution of artistic leadership through connection,
+          education, and innovation.
+        </p>
+        <img
+          src="purpose-illustration.jpg"
+          alt="Artistic Leadership"
+          style="
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          "
+        />
+      </div>
+
+      <!-- RIGHT COLUMN: FLOATING CARDS -->
+      <div
+        style="
+          flex: 1.5;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+        "
+      >
+        <!-- MISSION BUTTON -->
+        <div
+          class="mission-card"
+          style="
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #ff0055;
+            transition: 0.3s;
+            cursor: default;
+          "
+        >
+          <h3 style="margin-bottom: 10px; color: #fff">Mission</h3>
+          <p style="color: #bbb; font-size: 0.95rem">
+            ADI empowers artistic directors worldwide with leadership
+            development, education, resources, and essential community.
+          </p>
+        </div>
+
+        <!-- VISION BUTTON -->
+        <div
+          class="vision-card"
+          style="
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #8000ff;
+            transition: 0.3s;
+            cursor: default;
+          "
+        >
+          <h3 style="margin-bottom: 10px; color: #fff">Vision</h3>
+          <p style="color: #bbb; font-size: 0.95rem">
+            A world where artistic directors across all disciplines thrive as
+            visionary leaders, equipped to shape the future of arts and culture.
+          </p>
+        </div>
+
+        <!-- CORE VALUES BUTTON (Interactive/Expanded) -->
+        <div
+          class="values-card"
+          style="
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #0044ff;
+            transition: 0.3s;
+          "
+        >
+          <h3 style="margin-bottom: 15px; color: #fff">Core Values</h3>
+          <div
+            class="values-list"
+            style="
+              margin-top: 10px;
+              max-width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+            "
+          >
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>C</strong>&nbsp;&nbsp;reativity
+            </div>
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>R</strong>&nbsp;&nbsp;esponsibility
+            </div>
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>E</strong>&nbsp;&nbsp;xcellence
+            </div>
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>A</strong>&nbsp;&nbsp;uthenticity
+            </div>
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>T</strong>&nbsp;&nbsp;ransformation
+            </div>
+            <div class="value-item" style="font-size: 1.3rem">
+              <strong>E</strong>&nbsp;&nbsp;quity
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* Hover effects specifically for this section */
+        .mission-card:hover,
+        .vision-card:hover,
+        .values-card:hover {
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.02)
+          );
+          transform: translateX(10px);
+          box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 900px) {
+          #purpose {
+            flex-direction: column;
+            text-align: left;
+          }
+
+          .mission-card:hover,
+          .vision-card:hover,
+          .values-card:hover {
+            transform: translateY(-5px);
+          }
+        }
+      </style>
+    </section>
+
+    <section id="leadership">
+      <h2 style="text-transform: uppercase">Leadership</h2>
+      <p class="section-subtitle">Meet the visionaries behind ADI.</p>
+
+      <div class="leader-card">
+        <div class="leader-img">
+          <img
+            src="melissa.jpg"
+            alt="Melissa M. Young"
+            style="object-position: top center"
+          />
+        </div>
+        <div class="leader-info">
+          <h3>Melissa M. Young</h3>
+          <span class="leader-role">Co-Founder & Chief Artistic Officer</span>
+          <div class="bio-text">
+            <p>
+              Melissa M. Young is a distinguished artistic leader and educator
+              whose three-decade career blends visionary creativity, strategic
+              leadership, and a deep commitment to advancing the performing
+              arts. A Honduran American from Santa Ana, California, Melissa
+              trained at The Ailey School and strengthened her executive acumen
+              through Michigan State University’s Eli Broad College of Business,
+              earning graduate-level certificates in Leadership, Management, and
+              Analytical Skills. She is also an inaugural cohort member of The
+              Ailey Horton Teacher Certification Program, further advancing her
+              expertise in the Horton Technique.
+            </p>
+            <p>
+              Melissa spent 30 transformative years with Dallas Black Dance
+              Theatre, rising from company dancer to Artistic Director. Under
+              her leadership, she pioneered a virtual programming model that
+              connected audiences across 40+ states and 35+ countries. Her
+              artistic influence has appeared on renowned stages including The
+              Kennedy Center, Lincoln Center Out-of-Doors, City Center, The
+              Joyce Theater, and at two Cultural Olympiads.
+            </p>
+
+            <div id="melissa-extra-bio" style="display: none; margin-top: 15px">
+              <p>
+                A respected educator specializing in the Lester Horton
+                Technique, Melissa has taught nationally and internationally for
+                universities, conservatories, professional companies, and major
+                festivals. She has also led movement-based leadership
+                experiences for corporate and civic organizations. Her service
+                includes advisory and panel roles for the Texas Commission on
+                the Arts, Mid Atlantic Arts Foundation, Dance Data Project®, and
+                the City of Dallas Office of Arts and Culture.
+              </p>
+              <p>
+                Today, Melissa serves as Co-Founder and Chief Artistic Officer
+                of Artistic Directors International; as founder of The Presence
+                Whisperer, a leadership brand rooted in presence, clarity, and
+                embodied excellence; and as a leading practitioner collaborating
+                with the Serendipity Institute for Black Arts and Heritage for
+                the MA in Black British Dance and Performance at the Northern
+                School of Contemporary Dance. Melissa’s global influence
+                continues to position her as a trusted voice in the field—an
+                artistic leader whose clarity, strength, and generosity elevate
+                every creative community she touches.
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="toggleBio('melissa-extra-bio', this)"
+            class="btn-read-more"
+          >
+            Read More
+          </button>
+        </div>
+      </div>
+
+      <div class="leader-card" style="flex-direction: row-reverse">
+        <div class="leader-img">
+          <img src="sam.jpg" alt="Sam Santiago" />
+        </div>
+        <div class="leader-info">
+          <h3>Sam Santiago, CDE®️</h3>
+          <span class="leader-role">Co-Founder & Chief Executive Officer</span>
+          <div class="bio-text">
+            <p>
+              Sam Santiago, CDE®️ is a seasoned corporate executive and
+              international entrepreneur with 35 years of experience across
+              travel, logistics, and entertainment. Native to Puerto Rico, he
+              developed an early, deep appreciation for a broad spectrum of
+              creative disciplines.
+            </p>
+            <p>
+              As former leader of the American Airlines Foundation, Sam
+              championed countless cultural institutions. Appointed by Mayor
+              Eric Johnson as Chair of the City of Dallas Arts and Culture
+              Advisory Commission, Sam now leads ADI and the Asociación
+              Internacional de Hoteles Boutique from Mexico.
+            </p>
+            <p>
+              He has served on numerous board and committees, including
+              VolunteerNOW (formerly the North Texas Volunteer Center) and the
+              Dallas Cultural Plan. A global citizen, Sam brings by way of his
+              travel to 60+ countries and territories and lived experiences in
+              several continents a profound commitment to diversity, equity, and
+              inclusive artistic excellence.
+            </p>
+
+            <div id="sam-extra-bio" style="display: none; margin-top: 15px">
+              <p>
+                Though far too modest to call himself an artist, Sam has long
+                been a dedicated supporter and advocate for the arts. His
+                involvement has spanned board service, committee leadership, and
+                philanthropic patronage for numerous cultural institutions,
+                including Dallas Black Dance Theatre, Arts Fort Worth, the
+                Dallas Museum of Art, the Business Council for the Arts, the
+                City of Dallas Office of Arts and Culture, and SMU’s Master of
+                Management in International Arts Management (MMIAM) program,
+                among others.
+              </p>
+              <p>
+                As the former leader of the American Airlines Foundation and its
+                global social impact portfolio, Sam championed countless U.S.
+                and international organizations through corporate grants,
+                employee volunteerism and board placements, product donations,
+                and cause-marketing initiatives. He strengthened his leadership
+                profile in the arts by completing the Leadership Arts Institute
+                program and later serving as a faculty member of the Business
+                Council for the Arts for nearly a decade.
+              </p>
+              <p>
+                In 2019, Sam was appointed by Mayor Eric Johnson to serve as
+                Chair of the City of Dallas Arts and Culture Advisory
+                Commission. Prior to this role, he spent nearly a decade as a
+                judge for arts and cultural projects seeking city funding. In
+                2018, he contributed to the Dallas Cultural Plan, focusing on
+                key pillars including community engagement, funding structures,
+                economic impact, and equity—advancing these priorities through
+                the work of the Advisory Commission.
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="toggleBio('sam-extra-bio', this)"
+            class="btn-read-more"
+          >
+            Read More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="membership" style="padding-top: 20px">
+      <h2>MEMBERSHIP</h2>
+      <p class="membership-intro">
+        The ADI Membership Program provides a structured, value-driven framework
+        to engage artistic directors at every stage of their careers.
+      </p>
+
+      <div class="card-showcase">
+        <img src="tarjeta.jpg" alt="Founding Member Card" />
+      </div>
+
+      <div class="pricing-container" style="align-items: stretch">
+        <div class="price-card" style="height: auto">
+          <div class="tier-header">
+            <h3 style="color: #0044ff">Horizon</h3>
+            <div class="tier-desc">
+              Aspiring & early-career artistic directors
+            </div>
+          </div>
+          <div class="price-box">
+            <div class="current-price">
+              $200<span style="font-size: 1rem; font-weight: 400">/yr</span>
+            </div>
+            <div class="founding-price">Founding Rate: $160</div>
+          </div>
+          <ul class="benefits-list">
+            <li>Online community</li>
+            <li>Blogs and Newsletters</li>
+            <li>Directory listing</li>
+            <li>Global networking events</li>
+            <li>Webinars (Live + Library)</li>
+            <li>Mentorship program</li>
+            <li>Voting rights</li>
+          </ul>
+          <div style="margin-top: auto; padding-top: 20px">
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_HORIZON"
+              target="_blank"
+              class="btn-gradient"
+              style="
+                width: 100%;
+                display: block;
+                text-align: center;
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                color: #fff;
+              "
+              >Join Horizon</a
+            >
+          </div>
+        </div>
+
+        <div class="price-card" style="height: auto">
+          <div class="tier-header">
+            <h3 class="gradient-text">Summit</h3>
+            <div class="tier-desc">Experienced artistic directors</div>
+          </div>
+          <div class="price-box">
+            <div class="current-price">
+              $425<span style="font-size: 1rem; font-weight: 400">/yr</span>
+            </div>
+            <div class="founding-price">Founding Rate: $341</div>
+          </div>
+          <ul class="benefits-list">
+            <li>Everything in Horizon</li>
+            <li>Exclusive Annual Summit access</li>
+            <li>Advanced leadership workshops</li>
+            <li>Priority mentorship matching</li>
+            <li>Committee eligibility</li>
+          </ul>
+          <div style="margin-top: auto; padding-top: 20px">
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_SUMMIT"
+              target="_blank"
+              class="btn-gradient"
+              style="
+                width: 100%;
+                display: block;
+                text-align: center;
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                color: #fff;
+              "
+              >Join Summit</a
+            >
+          </div>
+        </div>
+
+        <div class="price-card featured" style="height: auto; min-height: 0">
+          <div
+            style="
+              position: absolute;
+              top: 0;
+              right: 0;
+              background: #ff0055;
+              color: white;
+              padding: 5px 20px;
+              border-bottom-left-radius: 15px;
+              font-weight: bold;
+              font-size: 0.8rem;
+            "
+          >
+            PREMIUM ACCESS
+          </div>
+          <div class="tier-header">
+            <h3 style="color: #ff0055; font-size: 2.2rem">Pinnacle</h3>
+            <div class="tier-desc">Directors representing an organization</div>
+          </div>
+
+          <div class="price-box" style="margin-bottom: 20px">
+            <div style="margin-bottom: 15px">
+              <span style="color: #ddd; font-size: 0.9rem">Individual:</span>
+              <div class="current-price" style="font-size: 2rem">
+                $750<span style="font-size: 1rem; font-weight: 400">/yr</span>
+              </div>
+              <div
+                class="founding-price"
+                style="font-size: 0.9rem; color: #ff3377"
+              >
+                Founding: $600
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 15px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 10px;
+              "
+            >
+              <span style="color: #ddd; font-size: 0.9rem"
+                >Two Representatives:</span
+              >
+              <div class="current-price" style="font-size: 2rem">
+                $1,250<span style="font-size: 1rem; font-weight: 400">/yr</span>
+              </div>
+              <div
+                class="founding-price"
+                style="font-size: 0.9rem; color: #ff3377"
+              >
+                Founding: $1,100
+              </div>
+            </div>
+          </div>
+
+          <ul class="benefits-list">
+            <li><strong>Choice of 1 or 2 reps</strong></li>
+            <li>All Summit benefits</li>
+            <li>Level Recognition</li>
+            <li>Committee Participation</li>
+            <li>Full Directory Access</li>
+            <li>Priority Support</li>
+          </ul>
+          <div
+            style="
+              margin-top: auto;
+              padding-top: 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            "
+          >
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_PINNACLE_INDIVIDUAL"
+              target="_blank"
+              class="btn-gradient"
+              style="width: 100%; display: block; text-align: center"
+              >Join Individual ($750)</a
+            >
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_PINNACLE_DUAL"
+              target="_blank"
+              class="btn-gradient"
+              style="
+                width: 100%;
+                display: block;
+                text-align: center;
+                background: transparent;
+                border: 1px solid #ff0055;
+              "
+              >Join Dual Rep ($1250)</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources">
+      <h2 style="text-transform: uppercase">Engage & Learn</h2>
+      <div class="resource-grid">
+        <a href="#networking" class="res-item-link">
+          <div class="res-item">
+            <span class="res-icon">🤝</span>
+            <h4>Networking: OffStage</h4>
+            <p>
+              Join our event "OffStage" where we drop the titles and talk
+              candidly. Connect with peers globally.
+            </p>
+          </div>
+        </a>
+
+        <a href="#newsletter" class="res-item-link">
+          <div class="res-item">
+            <span class="res-icon">📰</span>
+            <span
+              class="badge-coming-soon"
+              style="
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.1);
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                border-radius: 10px;
+                margin-bottom: 5px;
+                color: #ff0055;
+                border: 1px solid #ff0055;
+              "
+              >COMING SOON</span
+            >
+            <h4>Newsletter</h4>
+            <p>
+              Stay informed with sections from the Founders, Guest Writers, and
+              industry alerts.
+            </p>
+          </div>
+        </a>
+
+        <a href="#academy" class="res-item-link">
+          <div class="res-item">
+            <span class="res-icon">🎓</span>
+            <span
+              class="badge-coming-soon"
+              style="
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.1);
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                border-radius: 10px;
+                margin-bottom: 5px;
+                color: #ff0055;
+                border: 1px solid #ff0055;
+              "
+              >COMING SOON</span
+            >
+            <h4>Academy (Coming Soon)</h4>
+            <p>
+              Workshops and leadership training to navigate industry challenges
+              and strengthen institutions.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact-section">
+      <h2 style="text-transform: uppercase">Get in Touch</h2>
+      <p class="section-subtitle">
+        We would love to hear from you. Fill out the form below.
+      </p>
+
+      <div class="contact-form-container">
+        <form action="#" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Jane"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="jane@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                >Phone Number
+                <span style="font-weight: 400; color: #888; font-size: 0.8rem"
+                  >(Optional)</span
+                ></label
+              >
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="+1 (555) 000-0000"
+              />
+            </div>
+
+            <div class="form-group full-width">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                  gap: 15px;
+                "
+              >
+                <div>
+                  <label>Country</label>
+                  <select class="form-control" id="countrySelect">
+                    <option value="">Select Country</option>
+                    <option disabled>Loading...</option>
+                  </select>
+                </div>
+                <div>
+                  <label>State / Region</label>
+                  <select class="form-control" id="stateSelect" disabled>
+                    <option value="">Select State / Region</option>
+                  </select>
+                </div>
+                <div>
+                  <label>City</label>
+                  <select class="form-control" id="citySelect" disabled>
+                    <option value="">Select City</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Position / Role</label>
+              <select class="form-control">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Artistic Director">Artistic Director</option>
+                <option value="Executive Director">Executive Director</option>
+                <option value="CEO">CEO</option>
+                <option value="President">President</option>
+                <option value="Founder/Owner">Founder / Owner</option>
+                <option value="Manager">Manager</option>
+                <option value="Board Member">Board Member</option>
+                <option value="Artist">Artist</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label>Message</label>
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="How can we help you?"
+              ></textarea>
+            </div>
+
+            <div class="form-group full-width" style="text-align: center">
+              <button
+                type="submit"
+                class="btn-gradient"
+                style="padding: 15px 50px; font-size: 1.2rem"
+              >
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      const countrySelect = document.getElementById("countrySelect");
+      const stateSelect = document.getElementById("stateSelect");
+      const citySelect = document.getElementById("citySelect");
+
+      // PUBLIC API ENDPOINTS (Using GET with query params as confirmed by tests)
+      const ALL_COUNTRIES_URL =
+        "https://countriesnow.space/api/v0.1/countries/iso";
+      const STATES_URL =
+        "https://countriesnow.space/api/v0.1/countries/states/q";
+      const CITIES_URL =
+        "https://countriesnow.space/api/v0.1/countries/state/cities/q";
+
+      // 1. Fetch All Countries on Load
+      document.addEventListener("DOMContentLoaded", () => {
+        countrySelect.innerHTML =
+          "<option disabled selected>Loading Countries...</option>";
+        fetch(ALL_COUNTRIES_URL)
+          .then((response) => response.json())
+          .then((data) => {
+            countrySelect.innerHTML =
+              '<option value="">Select Country</option>';
+            if (!data.error) {
+              data.data.forEach((item) => {
+                const option = document.createElement("option");
+                option.value = item.name; // Use Name for API requests
+                option.textContent = item.name;
+                countrySelect.appendChild(option);
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching countries:", error);
+            countrySelect.innerHTML =
+              "<option disabled>Error loading countries</option>";
+          });
+      });
+
+      // 2. Fetch States when Country Changes
+      countrySelect.addEventListener("change", function () {
+        // Reset downstreams
+        stateSelect.innerHTML =
+          '<option value="">Select State / Region</option>';
+        stateSelect.disabled = true;
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        citySelect.disabled = true;
+
+        const countryName = this.value;
+        if (!countryName) return;
+
+        // Show Loading
+        stateSelect.innerHTML = "<option>Loading states...</option>";
+        stateSelect.disabled = false; // Enable to show loading text
+
+        // Use GET request with encoding
+        const url = `${STATES_URL}?country=${encodeURIComponent(countryName)}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            stateSelect.innerHTML =
+              '<option value="">Select State / Region</option>'; // Clear loading
+            if (
+              !data.error &&
+              data.data.states &&
+              data.data.states.length > 0
+            ) {
+              data.data.states.forEach((state) => {
+                const option = document.createElement("option");
+                option.value = state.name;
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+              });
+            } else {
+              // Fallback if no states found (some countries don't have states in this DB)
+              stateSelect.innerHTML =
+                '<option value="N/A">Not Applicable / All</option>';
+              // Optionally unlock cities here if we could fetch all cities for country,
+              // but for this flow we wait for state selection usually.
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            stateSelect.innerHTML =
+              '<option value="">Error or No States</option>';
+          });
+      });
+
+      // 3. Fetch Cities when State Changes
+      stateSelect.addEventListener("change", function () {
+        // Reset downstream
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        citySelect.disabled = true;
+
+        const countryName = countrySelect.value;
+        const stateName = this.value;
+        if (!countryName || !stateName || stateName === "N/A") return;
+
+        // Show Loading
+        citySelect.innerHTML = "<option>Loading cities...</option>";
+        citySelect.disabled = false;
+
+        const url = `${CITIES_URL}?country=${encodeURIComponent(
+          countryName
+        )}&state=${encodeURIComponent(stateName)}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            citySelect.innerHTML = '<option value="">Select City</option>'; // Clear loading
+            if (!data.error && data.data && data.data.length > 0) {
+              data.data.forEach((city) => {
+                const option = document.createElement("option");
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+              });
+            } else {
+              citySelect.innerHTML =
+                '<option value="N/A">Not Available / None</option>';
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            citySelect.innerHTML =
+              '<option value="">Error loading cities</option>';
+          });
+      });
+    </script>
+
+    <footer>
+      <div class="logo-container" style="justify-content: center">
+        <img src="logo-final.png" alt="ADI Footer Logo" class="footer-logo" />
+      </div>
+      <h3 style="margin-bottom: 10px; color: #ffffff">
+        Artistic Directors International
+      </h3>
+      <p class="footer-info" style="font-style: italic">
+        "Creativity is our engine. Respect is our fuel."
+      </p>
+
+      <div class="social-links" style="margin: 30px 0">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+      </div>
+
+      <p class="footer-info">artisticdirectorsinternational@gmail.com</p>
+      <p class="footer-info" style="font-size: 0.8rem; opacity: 0.5">
+        &copy; 2026 ADI. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- AI CHATBOT ICON -->
+    <div class="ai-chat-btn" id="aiChatBtn" onclick="toggleChat()">
+      <img src="robot-avatar.png" alt="AI Robot" />
+    </div>
+
+    <!-- AI CHAT WINDOW -->
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <h4><i class="fas fa-robot"></i> ADI Assistant</h4>
+        <button class="chat-close" onclick="toggleChat()">×</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">
+          Hello! I'm your ADI AI Assistant. Ask me about the Launch Event,
+          Membership, or our Mission. 🤖
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask me something..."
+          onkeypress="handleKeyPress(event)"
+        />
+        <button onclick="sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- CHATBOT SCRIPT -->
+    <script>
+      function toggleChat() {
+        const chatWindow = document.getElementById("chatWindow");
+        chatWindow.classList.toggle("active");
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      }
+
+      function sendMessage() {
+        const input = document.getElementById("chatInput");
+        const messages = document.getElementById("chatMessages");
+        const question = input.value.trim();
+
+        if (question === "") return;
+
+        // Add User Message
+        addMessage(question, "user");
+        input.value = "";
+
+        // Simulate AI Delay
+        const loadingId = addLoading();
+
+        setTimeout(() => {
+          removeLoading(loadingId);
+          const response = getAIResponse(question);
+          addMessage(response, "bot");
+        }, 800);
+      }
+
+      function addMessage(text, sender) {
+        const messages = document.getElementById("chatMessages");
+        const div = document.createElement("div");
+        div.className = `msg ${sender}`;
+        div.textContent = text;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function addLoading() {
+        const messages = document.getElementById("chatMessages");
+        const div = document.createElement("div");
+        div.className = "msg bot";
+        div.textContent = "...";
+        div.id = "loading-" + Date.now();
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div.id;
+      }
+
+      function removeLoading(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      }
+
+      function getAIResponse(input) {
+        const lower = input.toLowerCase();
+
+        if (
+          lower.includes("launch") ||
+          lower.includes("event") ||
+          lower.includes("when") ||
+          lower.includes("date")
+        ) {
+          return "The Virtual Launch is on January 22, 2026, at 1:00 PM CST live via Zoom. You can register for free using the button above! 🎉";
+        }
+        if (
+          lower.includes("price") ||
+          lower.includes("cost") ||
+          lower.includes("tier") ||
+          lower.includes("membership") ||
+          lower.includes("join")
+        ) {
+          return "We have 3 tiers: Horizon ($200/yr), Summit ($500/yr), and Pinnacle ($750/yr). Pinnacle also offers a 'Two Representatives' options for $1,250/yr. Founding rates are available!";
+        }
+        if (
+          lower.includes("what is adi") ||
+          lower.includes("mission") ||
+          lower.includes("purpose") ||
+          lower.includes("who")
+        ) {
+          return "ADI (Artistic Directors International) is a global network dedicated to empowering artistic leaders through connection, education, and resources. 🌍";
+        }
+        if (lower.includes("hello") || lower.includes("hi")) {
+          return "Hello there! How can I help you today?";
+        }
+        return "I'm still learning! Check the sections above for details on Membership and the Launch event, or ask me something else about ADI.";
+      }
+
+      function toggleBio(id, btn) {
+        const extra = document.getElementById(id);
+        if (extra.style.display === "none") {
+          extra.style.display = "block";
+          btn.textContent = "Show Less";
+        } else {
+          extra.style.display = "none";
+          btn.textContent = "Read More";
+        }
+      }
+    </script>
+  </body>
+</html>
